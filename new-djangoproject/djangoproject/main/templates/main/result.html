@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="{% static 'bootstrap-5.3.0-dist/js/bootstrap.min.js' %}"></script>
+    <link href=" {% static 'bootstrap-5.3.0-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/recognition.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container-card {
+            height: 30rem;
+            width: 85rem;
+            background-color: #91C997;
+
+        }
+
+        section.result {
+            margin-top: 5rem;
+        }
+    </style>
+
+    <!-- Навигация -->
+    <nav class="nav nav-justified position-fixed fixed-top justify-content-center bg-light bg-opacity-75 align-items-center" style="height: 4em; position: relative" id="nav">
+        <li class="nav-item">
+            <hr>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw" data-bs-toggle="modal" data-bs-target="#modalAuth">Авторизация</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw">Каталог заболеваний</a>
+        </li>
+        <li class="nav-item">
+            <a href="recognition.html" class="nav-link" style="font-size: 1.45vw">Сканировать</a>
+        </li>
+        <li class="nav-item">
+            <hr>
+        </li>
+    </nav>
+
+    <!-- Секция с ответом сервера -->
+
+    <section class="result">
+        <div class="container container-card mt-5 rounded-4" style="height: 60vh;">
+            <div class="row">
+                <div class="col-3 px-4 py-4 d-flex flex-column gap-4">
+                    <h4 class="card-title card-title-prediction text-center" id="accuracy"></h4>
+                    <img src="" alt="" class="card-img-bottom rounded-4" id="image_disease">
+                    <h4 class="card-title card-title-name text-center" id="plant"></h4>
+                </div>
+                <div class="col-6 px-4 py-4 flex-column gap-4">
+                    <h5 class="title text-center" id="disease"></h5>
+                    <p class="card-body" id="treatment"></p>
+                </div>
+                <div class="col-3 mt-2" style="display: flex; justify-content: flex-end;">
+                    <button type="button" class="btn-close border border-3 border-black rounded-circle"></button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <script>
+
+        function getResponse() {
+            const responseData = JSON.parse(localStorage.getItem('responseData'))['data'][0];
+            console.log(responseData);
+            return responseData;
+        }
+
+        document.addEventListener('DOMContentLoaded', getResponse());
+
+        // console.log(responseData);
+
+        let responseData = getResponse();
+
+        const id = responseData['id'];
+        const accuracy = responseData['accuracy'];
+        const disease = responseData['disease'];
+        const plant = responseData['plant'];
+        const treatment = responseData['treatment'];
+        const prophylaxis = responseData['prophylaxis'];
+        const image = responseData['image'];
+        const image_disease = responseData['image_disease'];
+
+        document.getElementById('accuracy').textContent = accuracy + '% совпадения';
+        document.getElementById('disease').textContent = disease;
+        document.getElementById('plant').textContent = plant;
+        document.getElementById('treatment').textContent = treatment;
+        var img = document.getElementById('image_disease');
+        img.src = 'data:image/png;base64,' + image;
+         
+        // console.log(id, disease, plant, treatment, prophylaxis, image, image_disease);
+    </script>
+</body>
+</html>

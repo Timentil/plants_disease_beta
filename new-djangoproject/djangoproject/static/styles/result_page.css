@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.nav {
+    position: fixed;
+    opacity: 100;
+}
+
+.nav-link {
+    background-color: transparent !important;
+    color: #000;
+}
+
+.nav-link:hover {
+    color: #424040;
+}
+
+.result {
+    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 116px auto;
+    gap: 113px;
+    justify-content: center;
+}
+
+.result__input {
+    max-width: 357px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.result__input__title {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 78px;
+}
+
+.result__input__photo {
+    width: 100%;
+    max-width: 283px;
+    height: 283px;
+    border-radius: 9px;
+    box-shadow: -74px 42px 0 0 #EEF4E6;
+    margin-bottom: 87px;
+    margin-top: 21px;
+    object-fit:cover;
+}
+
+.result__input__description {
+    font-size: 20px;
+}
+
+.result__output {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.result__output__card {
+    width: 277px;
+    height: 540px;
+    background-color: #ff5757;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 38px 47px;
+}
+
+.result__output__card__coincidence {
+    font-size: 20px;
+}
+
+.result__output__card__photo {
+    width: 100%;
+    max-width: 182px;
+    height: 182px;
+    border-radius: 23px;
+    object-fit: cover;
+}
+
+.result__output__title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.result__output__button {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    text-align: center;
+}
+
+.result__output__button__text {
+    font-size: 20px;
+    width: 101px;
+}
+
+.result__output__button__svg {
+    width: 47px;
+    height: 47px;
+
+}
+
+.card1 {
+    background-color: #91C997;
+}
+
+.card2 {
+    background-color: #FFF7AE;
+}
+
+.card3 {
+    background-color: #F7D4CC;
+}

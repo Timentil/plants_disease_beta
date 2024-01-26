@@ -1,0 +1,34 @@
+#drop-area {
+    width: 50rem;
+    height: 15rem;
+    background-color: #FFF7AE;
+    border-radius: 1.5rem;
+    border: 3px dashed #E5E8C9;
+}
+
+#recognition-container-load {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#recognition-first-load {
+    background: #3CA56D;
+    border-radius: 1.25rem;
+    color: #E5E8C9;
+    font-size: 1.5rem;
+    padding: auto;
+    text-align: center;
+}
+
+#recognition-second-load {
+    color: #2C5747;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#btn-load {
+    font-size: 1.25rem;
+    background-color: #FFF083
+}

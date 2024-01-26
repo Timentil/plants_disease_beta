@@ -1,0 +1,100 @@
+section {
+    height: 100vh; /* 125 vh */
+    position: relative;
+}
+
+#section2 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/attachments/images/Rectangle-0.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment:local;
+    background-position: center center;
+}
+
+.nav {
+    position: fixed;
+    opacity: 100;
+}
+
+.nav-link {
+    background-color: transparent !important;
+    color: #000;
+}
+
+.nav-link:hover {
+    color: #424040;
+}
+
+.bg-svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.bg-svg#right {
+    right: 0;
+}
+.bg-svg#left {
+    left: 0;
+}
+
+p[id^="chngBg"], #about {
+    padding-left: 0vw;
+    transition: padding-left 0.3s;
+}
+
+/* input#email::placeholder {
+    background: url('envelope-regular.svg');
+    background-repeat: no-repeat;
+    padding-left: 30px;
+} */
+
+/* input#name::placeholder {
+    background: url('user-solid.svg');
+    background-repeat: no-repeat;
+    padding-left: 30px;
+} */
+
+/* input#password::placeholder, input#repeatPassword::placeholder {
+    background: url('lock-solid.svg');
+    background-repeat: no-repeat;
+    padding-left: 30px;
+} */
+
+#btnLogin {
+    background-color: #6A9534;
+    color: white;
+    font-size: 1.45em;
+    font-weight: 400;
+}
+
+#btnSubmitFeedback {
+    background-color: #6A9534;
+    color: white;
+
+}
+
+#text-block {
+    margin-top: -20vh;
+    color: #4F7C66;
+    line-height: 1.2;
+}
+
+.bottom-image {
+    position: relative;
+    height: 90vh;
+}
+
+.bottom-image#right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100px);
+}
+
+.bottom-image#left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100px);
+}

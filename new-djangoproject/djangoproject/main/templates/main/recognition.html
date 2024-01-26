@@ -1,0 +1,163 @@
+<!-- Данные мы должны передавать на бэк через ajax
+    Принимаются данные тоже через ajax с помощью success
+    Пример:
+    $.ajax({
+    url: '/index.php',         /* Куда отправить запрос */
+    method: 'get',             /* Метод запроса (post или get) */
+    dataType: 'html',          /* Тип данных в ответе (xml, json, script, html). */
+    data: {text: 'Текст'},     /* Данные передаваемые в массиве */
+    success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+	     alert(data); /* В переменной data содержится ответ от index.php. */
+    }
+});
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="{% static 'bootstrap-5.3.0-dist/js/bootstrap.min.js' %}"></script>
+    <link href=" {% static 'bootstrap-5.3.0-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/recognition.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="nav nav-justified position-fixed fixed-top justify-content-center bg-light bg-opacity-75 align-items-center" style="height: 4em; position: relative" id="nav">
+        <li class="nav-item">
+            <hr>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw" data-bs-toggle="modal" data-bs-target="#modalAuth">Авторизация</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw">Каталог заболеваний</a>
+        </li>
+        <li class="nav-item">
+            <a href="recognition.html" class="nav-link" style="font-size: 1.45vw">Сканировать</a>
+        </li>
+        <li class="nav-item">
+            <hr>
+        </li>
+    </nav>
+
+    <!-- 1 секция -->
+    <section class="d-flex flex-column" id="section1">
+        <div class="container" style="z-index: -1;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="647" height="283" viewBox="0 0 647 283" fill="none" class="bg-svg" id="left">
+                <path d="M-42 277.848C-42 277.848 57.6436 310.372 84.8908 193.66C102.816 116.874 174.354 78.2483 337.745 115.296C530.168 158.956 639.319 80.5681 646.415 0H-42V277.824V277.848Z" fill="#FEF0ED"/>
+            </svg>
+        </div>
+
+        <form id="myForm" enctype="multipart/form-data">
+            <div class="container d-flex flex-column">
+                <div class="container" id="image-container">
+                    <img src="{%static 'attachments/images/objects-recognition.svg' %}" alt="" class="d-block mx-auto" style="width: 34rem; height: 13rem; margin-top: 7rem">
+                </div>
+                <div id="drop-area" class="container justify-content-center">
+                    <div class="row w-100 h-100">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img src="{% static 'attachments/images/image 6.png' %}" alt="" style="width: 8rem; height: 8rem;">
+                        </div>
+                        <label class="col-9" id="recognition-container-load">
+                            <div class="container p-2 m-2" id="recognition-first-load">
+                                Загрузите одно или несколько изображений
+                            </div>
+                            <div class="container" id="recognition-second-load">
+                                Или перетащите сюда
+                            </div>
+                            <input type="file" name="" id="fileInput" accept="image/*" style="display: none;">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container d-flex justify-content-center">
+            <button class="btn mt-5 border rounded-3 px-3" id="btn-load" onclick="sendData()">Далее</button>
+        </div>
+    </section>
+
+
+    <script>
+        // Функция для base64
+        const fileInput = document.getElementById("fileInput");
+        fileInput.addEventListener("change", e => {
+            const file = fileInput.files[0];
+            const formData = new FormData();
+
+            formData.append('user_id', 2);
+            formData.append('image', file);
+
+            console.log(formData);
+            const url = '/api/v1/predict_images';
+
+            try {
+                const response = fetch(url, {
+                    method: 'POST',
+                    body: formData
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Ошибка при отправке запроса:', response.status);
+                    }
+                }).then(data => {
+                    localStorage.setItem('responseData', JSON.stringify(data));
+                    window.location.href = 'result.html';
+                    console.log(data);
+                }).catch(error => {
+                    console.error('Ошибка при отправке запроса:', error);
+                });
+            } catch (error) {
+                console.error('Ошибка при отправке запроса:', error);
+            }
+        });
+        
+        // reader.addEventListener("load", () => {
+        //         const base64Data = reader.result;
+        //         console.log(base64Data);
+        //         const userId = 2;
+        //         const imageData = {image: base64Data};
+        //         const requestData = {user_id: userId, images: [imageData]};
+        //         const url = '/api/v1/predict_images';
+
+        //         try {
+        //             const response = fetch(url, {
+
+        //                 method: 'POST',
+        //                 headers: {
+        //                     'Accept': 'application/json',
+        //                     'Content-Type': 'application/json',
+        //                 },
+        //                 body: JSON.stringify(requestData)
+        //             }).then(response => {
+        //                 if (response.ok) {
+        //                     return response.json();
+        //                 } else {
+        //                     throw new Error('Ошибка при отправке запроса:', response.status);
+        //                 }
+        //             }).then(data => {
+        //                 console.log(data);
+        //             }).catch(error => {
+        //                 console.error('Ошибка при отправке запроса:', error);
+        //             });
+        //         }
+        //         catch (error) {
+        //             console.error('Ошибка при отправке запроса:', error);
+        //         }
+
+        //     });
+
+        //     reader.readAsDataURL(file);
+        // });
+
+        // function toBack(result) {
+        //     fetch
+        // }
+    </script>
+</body>
+</html>

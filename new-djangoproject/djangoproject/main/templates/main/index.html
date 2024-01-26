@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="{% static 'bootstrap-5.3.0-dist/js/bootstrap.min.js' %}"></script>
+    <link href=" {% static 'bootstrap-5.3.0-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="nav nav-justified position-fixed fixed-top justify-content-center bg-light bg-opacity-75 align-items-center" style="height: 4em; position: relative" id="nav">
+        <li class="nav-item">
+            <hr>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw" data-bs-toggle="modal" data-bs-target="#modalAuth">Авторизация</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link" style="font-size: 1.45vw">Каталог заболеваний</a>
+        </li>
+        <li class="nav-item">
+            <a href="recognition.html" class="nav-link" style="font-size: 1.45vw">Сканировать</a>
+        </li>
+        <li class="nav-item">
+            <hr>
+        </li>
+    </nav>
+
+    <!-- 1 секция -->
+
+    <section class="d-flex flex-column justify-content-center align-items-center" id="section1">
+        <div class="container" style="z-index: -1;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="647" height="283" viewBox="0 0 647 283" fill="none" class="bg-svg" id="left">
+                <path d="M-42 277.848C-42 277.848 57.6436 310.372 84.8908 193.66C102.816 116.874 174.354 78.2483 337.745 115.296C530.168 158.956 639.319 80.5681 646.415 0H-42V277.824V277.848Z" fill="#FEF0ED"/>
+            </svg>
+        </div>
+
+        <div class="container d-flex flex-column align-items-center text-center" id="text-block">
+            <div class="text" style="font-size: 5.5vw;">Распознавание <br> Заболеваний <br> Растений</div>
+            <button class="btn border mt-5 p-3" id="rec-button" onclick="toRecPage()">Начать сканирование</button>
+        </div>
+
+        <div class="container" style="z-index: -1;" id="bottom-image-container">
+            <img src="{%static 'attachments/images/right image.png' %}" alt="" class="bottom-image" id="right">
+            <img src="{%static 'attachments/images/left image.png' %}" alt="" class="bottom-image" id="left">
+        </div>
+    </section>
+
+    <!-- 2 секция -->
+
+    <section id="section2" style="height: 100vh;">
+        <div class="container">
+            <div class="row vh-100 align-items-center">
+                <div class="d-grid col-5 text-center">
+                    <div style="text-align: left;">
+                        <p style="margin-bottom: 3em; margin-top: 2em; font-size: 3vw;" id="chngBg1">
+                            Проблема
+                        </p>
+                        <p style="margin-bottom: 3em; font-size: 3vw;" id="chngBg2">
+                            Наша цель
+                        </p>
+                        <p style="margin-bottom: 3em; font-size: 3vw;" id="chngBg3">
+                            Наше решение
+                        </p>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="d-flex w-100 h-100">
+                        <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+                            <p class="bg-light p-5 rounded-5 bg-opacity-75 w-75" style="font-size: 2vw;" id="about">
+                                Заболевания растений многочисленны и разнообразны, что затрудняет их точное и быстрое определение как для садоводов, так и для агрономов.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 секция -->
+
+    <section id="section3" style="height: 100vh;">
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col rounded-5 mt-5" style="background-color: #FFF7AE; margin-right: 10%; padding: 4%">
+                    <div class="row" style="height: 25vh;">                          
+                        <div class="text container position-relative" style="font-size: 3rem">
+                            Для связи
+                        </div>
+                    </div>
+                    <div class="row mt-0" style="width: 32rem;">
+                        <div class="text" style="font-size: 1.5rem;">
+                            Мы развиваем и расширяем список распознаваемых заболеваний и культур. Но чтобы требуемое Вам заболевание появилось в ближайшее время, сообщите нам через форму обратной связи, указав ФИО, желаемые заболевания и культуру.
+                        </div>
+                    </div>                        
+                </div>
+                <div class="col border mt-5">
+                    <div class="row" style="height: 30vh;">
+                        <div class="container" style="height: 100%; position: relative;">
+                            <svg width="287" height="278" viewBox="0 0 287 278" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; right: 0; top: 0;">
+                                <circle cx="271.5" cy="6.5" r="271.5" fill="#FEF0ED"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-center" style="height: 50vh; margin-right: 31%; margin-left: 8%">
+                        <div class="text" style="font-size: 1.8rem;">
+                            Для поддержки проекта или партнёрства воспользуйтесь формой для связи с нами.
+                        </div>
+                        <div class="text mb-5 mt-3">
+                            <a href="" class="nav-link text" style="font-size: 1.4rem;" data-bs-target="#modalFeedback" data-bs-toggle="modal">
+                                Воспользоваться формой
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <div class="footer d-flex pt-5 pb-5" style="background-color: #5B5B6D; color: #d5d2d2">
+        <div class="col text-center">
+            Почта: zabolevania@gmail.com
+        </div>
+        <div class="col text-center">
+            Телефон горячей линии: 8 800 555 35 35  
+        </div>
+    </div>
+
+    <!-- Модальные окна -->
+
+
+    <!-- Модальное окно аутентификации -->
+
+
+    <div class="modal fade modal-lg" id="modalAuth" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close border border-3 border-black rounded-circle" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body border-0">
+                    <div class="d-flex container flex-row">
+                        <div class="col-6">
+                            <img src="{%static 'attachments/images/modalAuth.png' %}" alt="" class="card-img">
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-5 text-center">
+                            <h4 class="mt-5">Авторизация</h4>
+                            <form action="" method="post" class="d-flex flex-column container justify-content-center text-center mt-5">
+                                <input type="email" name="email" id="email" class="form-control border border-bottom rounded-5 p-3" placeholder="Email" required>
+                                <input type="password" name="password" id="password" class="form-control rounded-5 p-3 mt-2" placeholder="Пароль" required>
+                                <button type="submit" class="btn border rounded-5 mt-4" id="btnLogin">Войти</button>
+                                <a href="" class="text-decoration-none mt-2 mb-5" id="rePass" style="color: #676767">Забыли пароль?</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="d-flex container justify-content-between">
+                        <div class="col-6"></div>
+                        <div class="col-1"></div>
+                        <div class="col-5 text-center">
+                            <a href="" class="text-decoration-none mt-5" id="createAcc" style="color: #676767" data-bs-target="#modalLogin" data-bs-toggle="modal">Создать аккаунт -></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Регистрации -->
+
+    <div class="modal fade modal-lg" id="modalLogin" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close border border-3 border-black rounded-circle" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body border-0">
+                    <div class="d-flex container">
+                        <div class="col-5 text-center">
+                            <h4>Регистрация</h4>
+                            <form action="" method="" class="d-flex flex-column container justify-content-center text-center mt-2">
+                                <input type="text" name="name" id="name" class="form-control border border-bottom rounded-5 p-3" placeholder="Имя пользователя" required>
+                                <input type="email" name="email" id="email" class="form-control border border-bottom rounded-5 p-3 mt-2" placeholder="Email" required>
+                                <input type="password" name="password" id="password" class="form-control rounded-5 p-3 mt-2" placeholder="Пароль" required>
+                                <input type="password" name="repeatPassword" id="repeatPassword" class="form-control rounded-5 p-3 mt-2" placeholder="Повторите пароль" required>
+                                <button type="button" class="btn border rounded-5 mt-4 mb-2" id="btnReg">Создать аккаунт</button>
+                                <a href="" class="text-decoration-none mt-4 mb-3" id="createAcc" style="color: #676767" data-bs-target="#modalAuth" data-bs-toggle="modal">Войти -></a>
+                            </form>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-6">
+                            <img src="{%static 'attachments/images/modalLogin.png' %}" alt="" class="card-img">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer border-0">
+                    <div class="d-flex container justify-content-between">
+                        <div class="col-5 text-center">
+                            <a href="" class="text-decoration-none" id="createAcc" style="color: #676767" data-bs-target="#modalAuth" data-bs-toggle="modal">Войти -></a>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-6"></div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно обратной связи -->
+
+    <div class="modal fade modal-xl" id="modalFeedback" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+                <div class="modal-header border-0">
+                    <h4 class="w-100 text-center">Форма обратной связи</h4>
+                    <button type="button" class="btn-close border border-3 border-black rounded-circle" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body border-0">
+                    <div class="d-flex container">
+                        <div class="col-5 text-center">
+                            <form id="formFeedback" action="" method="post" class="d-flex flex-column container justify-content-center text-center mt-5">
+                                <input type="text" name="fullname" id="fullname" class="form-control border border-bottom rounded-5 p-3" placeholder="ФИО*" required>
+                                <input type="email" name="company" id="company" class="form-control border border-bottom rounded-5 p-3 mt-2" placeholder="Компания" required>
+                                <input type="password" name="job" id="job" class="form-control rounded-5 p-3 mt-2" placeholder="Должность" required>
+                                <input type="email" name="email" id="email" class="form-control border border-bottom rounded-5 p-3 mt-2" placeholder="Email" required>
+                                <textarea class="form-control border border-bottom rounded-5 p-3 mt-2" placeholder="Комментарий"></textarea>
+                                <label for="fileInput" class="p-3 mt-2" style="left: 0; cursor: pointer; text-decoration: none; color: rgb(19, 19, 226)">+ Добавить файл</label>
+                                <input type="file" class="form-control" id="inputGroupFile01" multiple="multiple">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="submit" form="formFeedback" class="btn border rounded-5 mt-4" id="btnSubmitFeedback" >Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+
+    <script>
+
+        function toRecPage() {
+            const recButton = document.getElementById('rec-button');
+            window.location.replace('recognition.html');
+        }
+
+        // Функция для изменения текста в 1 секции
+        function chngBg() {
+            const pTags = document.querySelectorAll('[id^="chngBg"]'); // Выбираем все <p> с id, начинающимся с "chngBg"
+            const sectionBefore = document.querySelector('[id="section2"]');
+            const aboutTag = document.querySelector('[id="about"]')
+            const text = [
+            'Заболевания растений многочисленны и разнообразны, что затрудняет их точное и быстрое определение как для садоводов, так и для агрономов.', 
+            'Мы нацелены на создание и развитие цифровых инструментов, способных облегчить, ускорить и повысить качество борьбы с заболеваниями культур на первых стадиях развития.',
+            'Наша команда при поддержке специалистов из области сельского хозяйства и сторонних организаций создала и развивает сервис, способный по фотографии растения определить заболевание и предоставить способ лечения.'
+            ]
+            let lastIndex = null;
+
+            pTags.forEach((p, index) => {
+                p.addEventListener('mouseover', () => {
+                    const newBackgroundImage = `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("attachments/images/Rectangle-${index}.png")`;
+                    sectionBefore.style.backgroundImage = newBackgroundImage;
+                    aboutTag.textContent = text[index];
+                    pTags[index].style.paddingLeft = '3vw';
+                    pTags[index].textContent += '→';
+
+                    if (lastIndex !== null) {
+                        pTags[lastIndex].style.paddingLeft = '0vw';
+                        pTags[lastIndex].textContent = pTags[lastIndex].textContent.replace('→' , '')
+                    }
+                    lastIndex = index;
+                });
+            });
+        }
+
+        // Функция для изменения прозрачности навигации при скролле
+
+        function scrollFixed() {
+            const navTag = document.getElementById('nav');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset) {
+                    navTag.classList.remove('bg-opacity-75');
+                    navTag.classList.add('bg-opacity-100');
+                }
+                else {
+                    navTag.classList.add('bg-opacity-75');
+                    navTag.classList.remove('bg-opacity-100');
+                }
+            });
+        }
+
+        chngBg();
+        scrollFixed();
+        
+        // Функция для удаления placeholder
+
+        function delPlaceholder() {
+            const email = document.querySelector('[id="email"]');
+
+            email.addEventListener()
+        }
+    </script>
+</body>
+</html>
